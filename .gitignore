@@ -1,1 +1,4 @@
+# .gitignore configuration so our node_modules directory isn't tracked or uploaded to GitHub #
 node_modules
+node_modules/
+.DS_Store/
