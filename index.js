@@ -1,7 +1,3 @@
-// Remaining To-dos:
-// - Record using the application
-// - Update project README file on GitHub
-
 // TODO: Include packages needed for this application
 const fs = require(`fs`);
 const inquirer = require(`inquirer`);
@@ -93,7 +89,9 @@ function init() {
     ]).then((response) => {
 
         // The project file name is initialised and then passed to the 'writeToFile' function. 
-        const fileName = 'README.md';
+        // The file name is set to 'README_SAMPLE.md' so it doesn't interfere with the 
+        // README.md file in my repo.
+        const fileName = 'README_SAMPLE.md';
 
         // The variables for 'license' and 'licenseBadge' are initialised so we can change them 
         // based on the user's input for the license prompt. 
