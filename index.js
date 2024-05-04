@@ -1,3 +1,7 @@
+// Remaining To-dos:
+// - Record using the application
+// - Update project README file on GitHub
+
 // TODO: Include packages needed for this application
 const fs = require(`fs`);
 const inquirer = require(`inquirer`);
@@ -15,21 +19,24 @@ const questions = [
     `What does the user need to know about contributing to the repo?`
 ];
 
-// Get the current year so we can automatically insert the current year into whichever license the user chooses
-
+// Below, we get the current year so we can automatically insert it into whichever license the user chooses
 let currentDate = new Date();
 let currentYear = currentDate.getFullYear();
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
 
+    // Write a new file using the passed 'fileName' and 'data' set up below. 
+    // If there is an error, log it to the console, otherwise log: 'Project README file created'. 
     fs.writeFile(fileName, data, (error) =>{
         error ? console.log(error) : console.log('Project README file created.')
     })
 }
 
-// TODO: Create a function to initialize app
+// TODO: Create a function to initialise app
 function init() {
+    // Inquirer prompts are set up to ask the user for their project information 
+    // based on the questions set up in the 'questions' array in the global scope. 
     inquirer.prompt([
         {
             type: `input`,
@@ -61,12 +68,16 @@ function init() {
             type: `input`,
             message: questions[5],
             name: `projectInstallation`,
+            // A 'default' property is set to act as a placeholder and allow the user to easily enter 'npm i' 
+            // as their response to the installation prompt. 
             default: `npm i`
         },
         {
             type: `input`,
             message: questions[6],
             name: `projectUsage`,
+            // A 'default' property is set to act as a placeholder and allow the user to easily enter 'npm test' 
+            // as their response to the usage prompt. 
             default: `npm test`
         },
         {
@@ -81,11 +92,16 @@ function init() {
         },
     ]).then((response) => {
 
+        // The project file name is initialised and then passed to the 'writeToFile' function. 
         const fileName = 'README.md';
 
+        // The variables for 'license' and 'licenseBadge' are initialised so we can change them 
+        // based on the user's input for the license prompt. 
         let license;
         let licenseBadge;
 
+        // Depending on what the user selects as their 'license' input, 
+        // put the correct license and licenseBadge information into their README file. 
         if (response.projectLicense === `MIT`) {
             license = 
 `MIT License
@@ -113,8 +129,8 @@ SOFTWARE.`
             licenseBadge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
 
         } else if (response.projectLicense === 'APACHE 2.0') {
-            license = `
-Copyright ${currentYear} ${response.userName}
+            license = 
+`Copyright ${currentYear} ${response.userName}
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -131,8 +147,8 @@ limitations under the License.`
             licenseBadge = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
 
         } else if (response.projectLicense === 'GPL 3.0') {
-            license = `
-GNU GENERAL PUBLIC LICENSE
+            license = 
+`GNU GENERAL PUBLIC LICENSE
 Version 3, 29 June 2007
 
 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -847,6 +863,8 @@ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.`
             licenseBadge = ``
         }
 
+        // We set up the README.md file structure and initialise it to the 'data' variable. 
+        // The user inputs are added for each respective section. 
         const data = 
 
 `# ${response.projectName}
@@ -888,15 +906,19 @@ ${response.projectTests}
             
 ## Questions
             
-If you have any questions, please reach out here:
+If you have any questions, please reach out at either of the following:
             
+### GitHub profile:
 - https://github.com/${response.userName}
+
+### Email:
 - ${response.email}`
 
+// With the 'fileName' and 'data' variables initialised, we pass them to the 'writeToFile' function. 
 writeToFile(fileName, data)
       
     })
 }
 
-// Function call to initialize app
+// Function call to initialise app
 init();
