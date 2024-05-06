@@ -89,9 +89,11 @@ function init() {
     ]).then((response) => {
 
         // The project file name is initialised and then passed to the 'writeToFile' function. 
-        // The file name is set to 'README_SAMPLE.md' so it doesn't interfere with the 
-        // README.md file in my repo.
-        const fileName = 'README_SAMPLE.md';
+        
+        // PLEASE NOTE: The file name of the newly created README file is set to the standardised 'README.md'. 
+        // Keep in mind that this will overwrite my existing README which explains the project itself if you 
+        // run the application within the cloned repository. (This is also mentioned in the project README.md file).
+        const fileName = 'README.md';
 
         // The variables for 'license' and 'licenseBadge' are initialised so we can change them 
         // based on the user's input for the license prompt. 

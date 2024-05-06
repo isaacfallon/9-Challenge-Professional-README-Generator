@@ -1,4 +1,4 @@
-# Project name here
+# Project name here (sample README file generated for for example)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
         
