@@ -4,11 +4,9 @@
 
 This project is a README generator application using the Node.JS command line interface ['inquirer'](https://www.npmjs.com/package/inquirer). It serves as the week 9 challenge for The University of Sydney's Coding Bootcamp.
 
-This application was built to serve as a more efficient  way to create a README.md file for a project. 
+This application was built to serve as a more efficient way to create a README.md file for a project. By using this application, the user does not need to manually enter in the details for their project's README which reduces the chances of creating an inaccurate or subpar README file to describe their project.
 
-By using this README generator, the user does not need to manually enter in the details for their README file which solves a problem of possibly creating an inaccurate or subpar README file to describe their project.
-
-By building this project, I gained a solid understanding of how Node.JS functions and the importance of README files for a project. 
+By building this project, I gained a solid understanding of how Node.JS functions and the importance of a README file for a project. 
 
 ### Video showing how the application works:
 
@@ -25,13 +23,21 @@ The screenshot below shows a portion of a sample README.md file generated:
 
 ![Screenshot showing a portion of a sample README.md file generated](./assets/images/IF_9-README-Generator_Sample-file.png)
 
+### Example of generated README file generated:
+
+If you would also like to see an example of a README.md file generated using this application, please visit the assets folder and view the file 'README_EXAMPLE_GENERATED.md'. [Link to the example README file within this repository.](./assets/README_EXAMPLE_GENERATED.md)
+
 ## Usage
 
 To use this application, you'll need to firstly, clone the repository and run the project locally. [Refer to this guide from GitHub if you need help.](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository/)
 
 Once cloned, you will need to navigate to the project's folder in your terminal and run the command 'npm i' to install the necessary dependencies. 
 
-Once the installation has completed, enter the command 'node index.js' to run the application. Once all prompts are answered, a new README_SAMPLE.md file should be generated in your project file. 
+Once the installation has completed, enter the command 'node index.js' to run the application. 
+
+PLEASE NOTE: The file name of the newly created README file is set to the standardised 'README.md'. Keep in mind that this will overwrite my existing README which explains the project itself if you run the application within the cloned repository. 
+
+Once all prompts are answered, a new README_SAMPLE.md file should be generated in your project file. 
 
 ## Credits
 
